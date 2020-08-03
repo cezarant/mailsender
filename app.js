@@ -12,24 +12,22 @@ const server = app.listen(port, function ()
     console.log('Servidor escutando em ' + port);
 });
 /* Trecho que envia email */
-async function main() {
- 
+async function main(vs_rementente,vs_textoEmail){ 
     let transporter = nodemailer.createTransport({
-        host: 'smtp.googlemail.com', // Gmail Host
-        port: 465, // Port
-        secure: true, // this is true as port is 465
+        host: 'smtp.googlemail.com', 
+        port: 465, 
+        secure: true, 
         auth: {
-            user: process.env.USUARIOGMAIL, // generated ethereal user
-            pass: process.env.SENHAGMAIL, // generated ethereal password
+            user: process.env.USUARIOGMAIL, 
+            pass: process.env.SENHAGMAIL,
         },
-    });
- 
-    // send mail with defined transport object
+    }); 
+    
     let info = await transporter.sendMail({
-        from: '"FROM_NAME" <FROM_EMAIL_ADDRESS>', // sender address
-        to: "cezarantsouza@gmail.com", // list of receivers
+        from: process.env.USUARIOGMAIL, 
+        to: vs_rementente,
         subject: "Welcome Email", // Subject line
-        text: "Hello world?", // plain text body
+        text: vs_textoEmail, // plain text body
         html: "This email is sent through <b>GMAIL SMTP SERVER</b>", // html body
     }); 
     console.log("Message sent: %s", info.messageId);	
@@ -42,5 +40,5 @@ app.get('/', function(req, res)
 
 app.get('/email', function(req, res)
 {    
-	main().then(res.send("So alegria")).catch(console.error);	
+	main("cezarantsouza@gmail","Teste de email").then(res.send("So alegria")).catch(console.error);	
 });
