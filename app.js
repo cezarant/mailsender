@@ -35,6 +35,11 @@ async function main() {
     console.log("Message sent: %s", info.messageId);	
 }
 
+app.get('/', function(req, res)
+{    
+	res.send("Enviador de email pronto para ser utilizado...");	
+});
+
 app.get('/email', function(req, res)
 {    
 	main().then(res.send("So alegria")).catch(console.error);	
