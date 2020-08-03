@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
-const smtpGoogle = process.env.SMTPGOOGLE;
-const postSMTPGoogle =  process.env.PORTASMTPGOOGLE;
 const assuntoEmail   = "Email de contato";
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,8 +16,8 @@ const server = app.listen(port, function ()
 /* Trecho que envia email */
 async function envioEmail(vs_rementente,corpoEmail){ 
     let transporter = nodemailer.createTransport({
-        host: smtpGoogle , 
-        port: postSMTPGoogle, 
+        host: process.env.SMTPGOOGLE, 
+        port: process.env.PORTASMTPGOOGLE, 
         secure: true, 
         auth: {
             user: process.env.USUARIOGMAIL, 
