@@ -27,7 +27,7 @@ async function main() {
     // send mail with defined transport object
     let info = await transporter.sendMail({
         from: '"FROM_NAME" <FROM_EMAIL_ADDRESS>', // sender address
-        to: "RECEPIENT_EMAIL_ADDRESS", // list of receivers
+        to: "cezarantsouza@gmail.com", // list of receivers
         subject: "Welcome Email", // Subject line
         text: "Hello world?", // plain text body
         html: "This email is sent through <b>GMAIL SMTP SERVER</b>", // html body
