@@ -40,5 +40,5 @@ app.get('/', function(req, res)
 
 app.get('/email', function(req, res)
 {    
-	main("cezarantsouza@gmail","Teste de email").then(res.send("So alegria")).catch(console.error);	
+	main("cezarantsouza@gmail.com","Teste de email").then(res.send("So alegria")).catch(console.error);	
 });
