@@ -2,9 +2,9 @@
   "name": "mailsender",
   "version": "1.0.0",
   "description": "enviador de email",
-  "main": "app.js",
-  "start": "node app",
+  "main": "app.js",  
   "scripts": {
+	"start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
