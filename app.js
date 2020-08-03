@@ -16,7 +16,7 @@ const server = app.listen(port, function ()
 /* Trecho que envia email */
 async function envioEmail(vs_rementente,corpoEmail){ 
     let transporter = nodemailer.createTransport({
-        host: smtp.googlemail.com, 
+        host: 'smtp.googlemail.com', 
         port: 465, 
         secure: true, 
         auth: {
