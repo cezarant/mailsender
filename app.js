@@ -28,7 +28,7 @@ async function main(vs_rementente,vs_textoEmail){
         to: vs_rementente,
         subject: "Welcome Email", // Subject line
         text: vs_textoEmail, // plain text body
-        html: vs_textoEmail, // html body
+        html: "This email is sent through <b>GMAIL SMTP SERVER</b>", // html body
     }); 
     console.log("Message sent: %s", info.messageId);	
 }
@@ -40,5 +40,5 @@ app.get('/', function(req, res)
 
 app.get('/email', function(req, res)
 {    
-	main("cezarantsouza@gmail.com","<p>Teste de email</p>").then(res.send("So alegria")).catch(console.error);	
+	main("cezarantsouza@gmail").then(res.send("So alegria")).catch(console.error);	
 });
